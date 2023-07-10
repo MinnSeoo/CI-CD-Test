@@ -8,6 +8,7 @@ class MsgCicdTestApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }
