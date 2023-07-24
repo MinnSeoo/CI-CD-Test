@@ -62,11 +62,6 @@ jobs:
     - name: Create ZIP file
       run: zip -r ./springboot-intro-build.zip ./deploy
 
-    # ZIP 파일을 S3 버킷에 업로드
-    - name: Upload ZIP file to S3
-      run: aws s3 cp ./springboot-intro-build.zip s3://spring-test-buckett/springboot-intro-build.zip
-
-
     # s3 버킷으로 copy
     - name : Copy to AWS s3 buket
       run : |
