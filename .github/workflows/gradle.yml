@@ -38,3 +38,29 @@ jobs:
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
         arguments: build
+      
+    # 전송할 파일을 담을 디렉토리 생성
+    - name : Make Directory for deliver
+      run : mkdir deploy
+      
+    # Jar 파일을 Copy
+    - name : Copy Jar
+      run : cp ./build/libs/*.jar ./deploy/
+      
+    # zip 파일로 압축하기
+    - name : make zip file
+      run : zip -r -qq -j ./spring-test-buckett.zip ./deploy
+      
+    # s3 버킷으로 copy
+    - name : Copy to AWS s3 buket
+      env :
+        AWS_ACCESS_KEY_ID : ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY_ID : ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
+      run : |
+        aws s3 cp \ 
+        -- region ap-northeast-2 \
+        -- acl private \            # 업로드한 파일의 접근 권한을 "private"로 설정 (즉, 소유자만 읽을 수 있도록 함)
+        -- ./spring-test-buckett.zip s3://spring-test-buckett/      # s3 버킷의 정보를 지정
+    
+    
+      
