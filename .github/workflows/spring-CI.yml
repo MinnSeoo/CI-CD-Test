@@ -54,10 +54,18 @@ jobs:
     - name : Make Directory for deliver
       run : mkdir deploy
       
+      
     # Jar 파일을 Copy
     - name : Copy Jar
       run : cp ./build/libs/*.jar ./deploy/
       
+      
+      
+    # appspec.yml Copy
+    - name: Copy appspec
+      run: cp appspec.yml ./deploy/
+        
+        
     # zip 파일로 압축하기
     - name: Create ZIP file
       run: zip -r ./springboot-intro-build.zip ./deploy
@@ -66,3 +74,18 @@ jobs:
     - name : Copy to AWS s3 bucket
       run : |
         aws s3 cp --region ap-northeast-2 --acl private ./springboot-intro-build.zip s3://spring-test-buckett/
+        
+    
+    # Deploy 부분
+    - name: Deploy
+      env:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRETS_ACCESS_KEY }} 
+        
+      run: |
+         aws deploy create-deployment \
+         --application-name spring-application-intro \
+         --deployment-group-name spring-application-deploy-group \
+         --file-exists-behavior OVERWRITE \
+         --s3-location bucket=springboot-intro-build,bundleType=zip,key=springboot-intro-build.zip \
+         --region ap-northeast-2  
