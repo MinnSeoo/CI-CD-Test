@@ -68,7 +68,7 @@ jobs:
         aws s3 cp \ 
         --region ap-northeast-2 \
         --acl private \            # 업로드한 파일의 접근 권한을 "private"로 설정 (즉, 소유자만 읽을 수 있도록 함)
-        --./spring-test-buckett.zip s3://spring-test-buckett/      # s3 버킷의 정보를 지정
+        --./springboot-intro-build.zip s3://spring-test-buckett/      # s3 버킷의 정보를 지정
     
     
       
