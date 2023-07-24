@@ -49,7 +49,8 @@ jobs:
       
     # zip 파일로 압축하기
     - name : make zip file
-      run : aws s3 cp ./springboot-intro-build.zip s3://springboot-intro-build/spring-test-buckett.zip
+      run : aws s3 cp ./springboot-intro-build.zip s3://springboot-intro-build/springboot-intro-build.zip
+
       
     # s3 버킷으로 copy
     - name : Copy to AWS s3 buket
