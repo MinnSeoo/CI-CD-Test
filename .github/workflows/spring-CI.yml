@@ -69,9 +69,6 @@ jobs:
 
     # s3 버킷으로 copy
     - name : Copy to AWS s3 buket
-      env :
-        AWS_ACCESS_KEY_ID : ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY_ID : ${{ secrets.AWS_SECRET_ACCESS_KEY_ID }}
       run : |
         aws s3 cp \ 
         -- region ap-northeast-2 \
