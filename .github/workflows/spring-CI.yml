@@ -61,9 +61,9 @@ jobs:
       
       
       
-    # appspec.yml Copy
-    - name: Copy appspec
-      run: cp appspec.yml ./deploy/
+#     # appspec.yml Copy
+#     - name: Copy appspec
+#       run: cp appspec.yml ./deploy/
         
         
     # zip 파일로 압축하기
@@ -76,16 +76,16 @@ jobs:
         aws s3 cp --region ap-northeast-2 --acl private ./springboot-intro-build.zip s3://spring-test-buckett/
         
     
-    # Deploy 부분
-    - name: Deploy
-      env:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRETS_ACCESS_KEY }} 
+#     # Deploy 부분
+#     - name: Deploy
+#       env:
+#         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+#         aws-secret-access-key: ${{ secrets.AWS_SECRETS_ACCESS_KEY }} 
         
-      run: |
-         aws deploy create-deployment \
-         --application-name spring-application-intro \
-         --deployment-group-name spring-application-deploy-group \
-         --file-exists-behavior OVERWRITE \
-         --s3-location bucket=springboot-intro-build,bundleType=zip,key=springboot-intro-build.zip \
-         --region ap-northeast-2  
+#       run: |
+#          aws deploy create-deployment \
+#          --application-name spring-application-intro \
+#          --deployment-group-name spring-application-deploy-group \
+#          --file-exists-behavior OVERWRITE \
+#          --s3-location bucket=springboot-intro-build,bundleType=zip,key=springboot-intro-build.zip \
+#          --region ap-northeast-2  
