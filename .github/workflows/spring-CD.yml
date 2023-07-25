@@ -3,8 +3,8 @@ name : spring-CD
 on:
   push:
     branches: [ master ]
-
-job:
+  
+jobs:
   build:
     name: CD
     runs-on: ubuntu-latest
