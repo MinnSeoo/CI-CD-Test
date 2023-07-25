@@ -3,7 +3,13 @@ name : spring-CD
 on:
   push:
     branches: [ master ]
-  
+
+
+env:
+  S3_BUCKET_NAME: spring-test-buckett
+  PROJECT_NAME: CI-CD-Test
+
+
 jobs:
   build:
     name: CD
