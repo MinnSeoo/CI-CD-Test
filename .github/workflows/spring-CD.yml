@@ -33,7 +33,7 @@ jobs:
      
     # Jar 파일을 Copy
     - name : Copy Jar
-      run : cp ./home/ec2-user/CI-CD-Test/build/libs/*.jar ./deploy/
+      run : cp /home/ec2-user/CI-CD-Test/build/libs/*.jar ./deploy/
         
       
       
