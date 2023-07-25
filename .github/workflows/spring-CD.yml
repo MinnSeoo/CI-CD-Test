@@ -31,11 +31,10 @@ jobs:
       run : mkdir deploy
       
      
-     
     # Jar 파일을 Copy
     - name : Copy Jar
-      run : cp ./build/libs/*.jar ./deploy/
-      
+      run : cp ./build/libs/msg-CICD-test-0.0.1-SNAPSHOT.jar ./deploy/
+        
       
       
     # appspec.yml Copy
