@@ -33,7 +33,7 @@ jobs:
      
     # Jar 파일을 Copy
     - name : Copy Jar
-      run : cp ./build/libs/msg-CICD-test-0.0.1-SNAPSHOT.jar ./deploy/
+      run : cp ./home/ec2-user/CI-CD-Test/build/libs/*.jar ./deploy/
         
       
       
