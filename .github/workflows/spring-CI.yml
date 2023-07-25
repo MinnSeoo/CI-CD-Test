@@ -96,5 +96,5 @@ jobs:
          --application-name springboot-intro \
          --deployment-group-name springboot-intro-deploy-group \
          --file-exists-behavior OVERWRITE \
-         --s3-location bucket=springboot-intro-build,bundleType=zip,key=springboot-intro-build.zip \
+         --s3-location bucket=spring-test-buckett,bundleType=zip,key=springboot-intro-build.zip \
          --region ap-northeast-2  
