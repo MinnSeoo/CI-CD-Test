@@ -2,7 +2,7 @@ name : spring-CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 
 env:
