@@ -16,5 +16,5 @@ permissions:
 # ApplicationStart 단계에서 StartDeploy.sh를 실행시킴.
 hooks:
  ApplicationStart:
-    - location: scripts/StartDeploy.sh
+    - location: script/StartDeploy.sh
       runas: ec2-user
